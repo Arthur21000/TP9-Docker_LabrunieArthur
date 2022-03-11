@@ -1,7 +1,0 @@
-version: '1.0.0'
-
-services:
-  deno:
-    image: zemmour2022/mon-image
-    ports:
-      - 3333:8080
