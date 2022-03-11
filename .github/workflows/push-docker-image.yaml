@@ -17,7 +17,15 @@ jobs:
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD  
       - name: Get current date # get the date of the build
         id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d--%M-%S')"    
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d--%M-%S')"
+      
+      - name: Extract metadata (tags, labels) for Docker
+	id: meta
+	uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+	with:
+	  images: debst/an-image
+	  tags: |
+	    type=semver,pattern={{version}}   
       
       - name: Build the Docker image # push The image to the docker hub
         run: docker build . --file Dockerfile --tag $DOCKER_USER/$REPO_NAME:${{ steps.date.outputs.date }}    
