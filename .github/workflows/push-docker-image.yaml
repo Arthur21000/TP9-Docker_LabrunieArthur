@@ -8,7 +8,7 @@ on:
 jobs:  
   push-to-registry:    
     name: Push Docker image to docker hub
-    runs-on: alpine-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
