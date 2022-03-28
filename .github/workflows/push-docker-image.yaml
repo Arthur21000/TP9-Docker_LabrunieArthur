@@ -3,7 +3,7 @@ name: Publier image docker
 on: 
   push:
     tags:
-      - '*.*.*'
+      - '1.*.*'
 
 jobs:  
   push-to-registry:    
