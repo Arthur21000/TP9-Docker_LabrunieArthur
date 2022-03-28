@@ -12,4 +12,5 @@ RUN apk add shadow
 RUN usermod --shell /bin/bash root
 
 #Lancer le script echo
+RUN su
 CMD ["/script.sh"]
