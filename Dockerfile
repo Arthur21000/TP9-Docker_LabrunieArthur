@@ -1,4 +1,4 @@
-#Utilisation de l'image alpine
+#Instalation de l'image alpine
 FROM alpine:latest
 
 #COPY du script
