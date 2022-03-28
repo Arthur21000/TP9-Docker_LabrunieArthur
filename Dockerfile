@@ -2,10 +2,14 @@
 FROM alpine:latest
 
 #COPY du script
-COPY ./script.sh /root/script.sh
-RUN chmod +x /script.sh
-ENTRYPOINT ["/root/script.sh"]
+COPY script.sh /script.sh
 
-#Mettre le shell par defaut en bash
+#Ajouter le bash
 RUN apk add --no-cache bash
-RUN --shell=/bin/bash
+
+#Mettre le script bash par defaut pour l'utilisateur root
+RUN apk add shadow
+RUN usermod --shell /bin/bash root
+
+#Lancer le script echo
+CMD ["/script.sh"]
