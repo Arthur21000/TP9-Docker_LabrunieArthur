@@ -2,9 +2,9 @@
 FROM alpine:latest
 
 #COPY du script
-COPY ./script.sh /
+COPY ./script.sh /root/script.sh
 RUN chmod +x /script.sh
-ENTRYPOINT ["/script.sh"]
+ENTRYPOINT ["/root/script.sh"]
 
 #Mettre le shell par defaut en bash
 RUN apk add --no-cache bash
